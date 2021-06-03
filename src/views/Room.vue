@@ -10,17 +10,18 @@
       </v-img>
 
       <v-list>
-        <template v-for="item in items">
-          <v-list-item :key="item.title">
-            <v-list-item-avatar>
-              <v-img :src="item.avatar"></v-img>
-            </v-list-item-avatar>
+        <v-list-item v-for="room in rooms" v-bind:key="room._id">
+          <v-list-item-avatar size="56px">
+            <img
+              alt="Avatar"
+              src="https://st.depositphotos.com/1203257/1763/i/950/depositphotos_17637335-stock-photo-yellowstone-rv-trip.jpg"
+            />
+          </v-list-item-avatar>
 
-            <v-list-item-content>
-              <v-list-item-title v-html="item.title"></v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </template>
+          <v-list-item-content>
+            <v-list-item-title>{{ room.name }} </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
 
       <v-icon>
@@ -39,6 +40,7 @@ export default {
       title: "Room",
       rvId: this.$route.params.rvId,
       data: {},
+      rooms: [],
     };
   },
 
@@ -55,11 +57,13 @@ export default {
         data: {
           creator: "507f1f77bcf86cd799439014",
           page: 1,
-          Rv: "60a27186c189465f8d33814b",
+          Rv: this.rvId,
         },
       };
 
-      axios.request(options);
+      const roomsList = await axios.request(options);
+      this.rooms = roomsList.data.data;
+      console.log(roomsList);
     },
   },
 };
