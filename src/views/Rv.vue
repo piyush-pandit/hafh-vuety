@@ -18,7 +18,7 @@
         <v-list-item-content>
           <v-list-item-title>{{ Rv.name }} </v-list-item-title>
         </v-list-item-content>
-        <v-btn class="mx-2" fab dark small color="cyan">
+        <v-btn @click="editRv" class="mx-2" fab dark small color="cyan">
           <v-icon dark> mdi-pencil </v-icon>
         </v-btn>
         <v-btn
@@ -73,6 +73,10 @@ export default {
       await axios.request(options);
 
       this.listOfRvs();
+    },
+
+    async editRv() {
+      //console.log("edit");
     },
   },
 };
