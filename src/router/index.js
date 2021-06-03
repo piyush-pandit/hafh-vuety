@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Landing from "../views/Landing.vue";
 import Rv from "../views/Rv.vue";
 import RvAdd from "../views/RvAdd.vue";
+import RvEdit from "../views/RvEdit.vue";
 import Room from "../views/Room.vue";
 import RoomAdd from "../views/RoomAdd.vue";
 import SignUp from "../views/SignUp.vue";
@@ -28,6 +29,11 @@ const routes = [
     path: "/rvAdd",
     name: "RvAdd",
     component: RvAdd,
+  },
+  {
+    path: "/rvEdit",
+    name: "/RvEdit",
+    component: RvEdit,
   },
   {
     path: "/room",

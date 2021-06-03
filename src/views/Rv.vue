@@ -16,8 +16,21 @@
           />
         </v-list-item-avatar>
         <v-list-item-content>
-          <v-list-item-title>{{ Rv.name }}</v-list-item-title>
+          <v-list-item-title>{{ Rv.name }} </v-list-item-title>
         </v-list-item-content>
+        <v-btn class="mx-2" fab dark small color="cyan">
+          <v-icon dark> mdi-pencil </v-icon>
+        </v-btn>
+        <v-btn
+          @click="deleteRv(Rv._id)"
+          class="mx-2"
+          fab
+          dark
+          small
+          color="cyan"
+        >
+          <v-icon dark> mdi-delete </v-icon>
+        </v-btn>
       </v-list-item>
     </v-list>
   </v-card>
@@ -47,6 +60,19 @@ export default {
       this.totalRvs = data.data.data;
       this.pageCount = data.data;
       this.maxPage = this.pageCount.maxPage;
+    },
+
+    async deleteRv(rvId) {
+      const options = {
+        method: "DELETE",
+        url: "http://localhost:3000/RV/delete",
+        headers: { "Content-Type": "application/json" },
+        data: { _id: rvId },
+      };
+
+      await axios.request(options);
+
+      this.listOfRvs();
     },
   },
 };
