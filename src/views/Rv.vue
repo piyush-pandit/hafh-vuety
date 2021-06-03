@@ -15,11 +15,19 @@
             src="https://st.depositphotos.com/1203257/1763/i/950/depositphotos_17637335-stock-photo-yellowstone-rv-trip.jpg"
           />
         </v-list-item-avatar>
-        <v-list-item-content>
-          <v-list-item-title>{{ Rv.name }} </v-list-item-title>
-        </v-list-item-content>
+        <router-link
+          :to="{ name: 'Room', params: { rvId: Rv._id } }"
+          tag="v-btn"
+        >
+          <v-list-item-content>
+            <v-list-item-title>{{ Rv.name }} </v-list-item-title>
+          </v-list-item-content>
+        </router-link>
 
-        <router-link :to="{ name: 'RvEdit', params: { rvId: Rv._id } }">
+        <router-link
+          :to="{ name: 'RvEdit', params: { rvId: Rv._id } }"
+          tag="v-btn"
+        >
           <v-btn class="mx-2" fab dark small color="cyan">
             <v-icon dark> mdi-pencil </v-icon>
           </v-btn>
