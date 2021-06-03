@@ -31,8 +31,8 @@ const routes = [
     component: RvAdd,
   },
   {
-    path: "/rvEdit",
-    name: "/RvEdit",
+    path: "/rvEdit/:rvId",
+    name: "RvEdit",
     component: RvEdit,
   },
   {

@@ -16,7 +16,9 @@
           ></v-text-field>
 
           <v-spacer></v-spacer>
-          <v-btn @click="createNewRv" class="success mx-0 mt-3">Add RV</v-btn>
+          <router-link :to="{ name: 'Rv' }">
+            <v-btn @click="createNewRv" class="success mx-0 mt-3">Add RV</v-btn>
+          </router-link>
         </v-form>
       </v-card-text>
     </v-card>
