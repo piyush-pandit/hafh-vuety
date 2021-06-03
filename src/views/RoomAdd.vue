@@ -44,7 +44,6 @@
           rounded
           color="#ffab01"
           dark
-          :href="/room/${rvId}""
         >
           Add Room
         </v-btn>
