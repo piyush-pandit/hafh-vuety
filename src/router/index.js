@@ -26,12 +26,12 @@ const routes = [
     component: Rv,
   },
   {
-    path: "/rvadd",
+    path: "/rvAdd",
     name: "RvAdd",
     component: RvAdd,
   },
   {
-    path: "/rvedit/:rvId",
+    path: "/rvEdit/:rvId",
     name: "RvEdit",
     component: RvEdit,
   },
@@ -41,7 +41,7 @@ const routes = [
     component: Room,
   },
   {
-    path: "/roomadd",
+    path: "/roomAdd/:rvId",
     name: "RoomAdd",
     component: RoomAdd,
   },
@@ -57,7 +57,7 @@ const routes = [
   },
 
   {
-    path: "/postadd",
+    path: "/postAdd",
     name: "PostAdd",
     component: PostAdd,
   },

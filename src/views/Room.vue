@@ -23,10 +23,16 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-
-      <v-icon>
-        <span class="material-icons">add_circle</span>
-      </v-icon>
+      <v-card-text>
+        <router-link :to="{ name: 'RoomAdd', params: { rvId: rvId } }">
+          <v-fab-transition>
+            <v-btn color="#ffab01" dark right fab fixed bottom>
+              <v-icon>mdi-plus</v-icon>
+            </v-btn>
+          </v-fab-transition>
+        </router-link>
+        <!-- <h6>New Area</h6> -->
+      </v-card-text>
     </v-card>
   </div>
 </template>

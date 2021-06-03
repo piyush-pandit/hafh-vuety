@@ -45,6 +45,15 @@
         </v-btn>
       </v-list-item>
     </v-list>
+
+    <v-card-text>
+      <v-fab-transition>
+        <v-btn color="#ffab01" dark right fab fixed bottom href="/rvAdd">
+          <v-icon>mdi-plus</v-icon>
+        </v-btn>
+      </v-fab-transition>
+      <!-- <h6>New Area</h6> -->
+    </v-card-text>
   </v-card>
 </template>
 <script>

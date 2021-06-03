@@ -36,19 +36,20 @@
         <v-spacer></v-spacer>
       </v-form>
       <br />
-      <router-link :to="{ name: 'Rv' }" tag="v-btn">
-        <div class="text-center">
-          <v-btn
-            @click="createNewRv"
-            style="width: 100px"
-            rounded
-            color="#ffab01"
-            dark
-          >
-            Add Room
-          </v-btn>
-        </div>
-      </router-link>
+      <!-- <router-link :to="{ name: 'Room' }" tag="v-btn"> -->
+      <div class="text-center">
+        <v-btn
+          @click="createNewRoom"
+          style="width: 100px"
+          rounded
+          color="#ffab01"
+          dark
+          :href="/room/${rvId}""
+        >
+          Add Room
+        </v-btn>
+      </div>
+      <!-- </router-link> -->
 
       <!-- <router-link :to="{ name: 'Rv' }">
         
@@ -66,15 +67,37 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  name: " RvAddModal",
+  name: " RoomAdd",
   data() {
     return {
+      title: "RoomAdd",
+      rvId: this.$route.params.rvId,
       data: {},
+      newRoom: [],
     };
   },
 
-  methods: {},
+  methods: {
+    async createNewRoom() {
+      const options = {
+        method: "POST",
+        url: "http://localhost:3000/Room/create",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          name: this.data.room,
+          image: this.data.image,
+          creator: "507f1f77bcf86cd799439014",
+          Rv: "60a27169c189465f8d338141",
+        },
+      };
+
+      const newRoomCreated = await axios.request(options);
+      this.newRoom = newRoomCreated.data.data;
+      console.log(this.newRoom);
+    },
+  },
 };
 </script>
 
