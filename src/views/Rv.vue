@@ -19,8 +19,8 @@
           >
             <v-icon dark left> mdi-arrow-left </v-icon> My Rv
           </v-btn>
-        </v-fab-transition></v-img -->
-      >
+        </v-fab-transition> -->
+      </v-img>
 
       <v-card-title> Your Rv's</v-card-title>
 
