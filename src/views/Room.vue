@@ -89,15 +89,16 @@ export default {
       this.rooms = roomsList.data.data;
       console.log(roomsList);
     },
-    async deleteRoom() {
+    async deleteRoom(roomId) {
       var options = {
         method: "DELETE",
         url: "http://localhost:3000/Room/delete",
         headers: { "Content-Type": "application/json" },
-        data: { _id: "60b9bd677b9d8608bd9eda48" },
+        data: { _id: roomId },
       };
 
-      axios.request(options);
+      await axios.request(options);
+      this.listOfRooms();
     },
   },
 };
