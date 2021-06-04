@@ -72,7 +72,6 @@ export default {
   created() {
     this.listOfRooms();
   },
-
   methods: {
     async listOfRooms() {
       const options = {
