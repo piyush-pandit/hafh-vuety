@@ -48,6 +48,17 @@
             }}</v-list-item-title>
             <v-list-item-subtitle>28/05/2021</v-list-item-subtitle>
           </div>
+          <v-spacer />
+          <v-btn
+            @click="deletePost(post._id)"
+            outlined
+            rounded
+            color="#ffab01"
+            dark
+            small
+          >
+            Delete
+          </v-btn>
         </v-list-item>
 
         <div>
@@ -63,15 +74,7 @@
         <v-card-text>
           <router-link :to="{ name: 'PostAdd', params: { roomId: roomId } }">
             <v-fab-transition>
-              <v-btn
-                color="#ffab01"
-                dark
-                right
-                fab
-                fixed
-                bottom
-                href="/postAdd"
-              >
+              <v-btn color="#ffab01" dark right fab fixed bottom>
                 <v-icon>mdi-plus</v-icon>
               </v-btn>
             </v-fab-transition>
@@ -111,6 +114,19 @@ export default {
 
       const postList = await axios.request(options);
       this.posts = postList.data.data;
+    },
+
+    async deletePost(postId) {
+      console.log("delete");
+      var options = {
+        method: "DELETE",
+        url: "http://localhost:3000/Post/delete",
+        headers: { "Content-Type": "application/json" },
+        data: { _id: postId },
+      };
+
+      await axios.request(options);
+      this.listOfPosts();
     },
   },
 };

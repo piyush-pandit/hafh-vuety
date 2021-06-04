@@ -98,6 +98,13 @@ export default {
 </script>
 
 <style scoped>
+.v-application a {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
 .para-title {
   margin-right: 60%;
 }

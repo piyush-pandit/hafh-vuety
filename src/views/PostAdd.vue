@@ -16,27 +16,31 @@
       </v-card>
       <br />
       <v-form>
-        <p class="para">Add a Status</p>
+        <p class="para"></p>
         <v-text-field
+          v-model="data.name"
           placeholder="Add a Status"
           solo-inverted
           style="margin: 0px 20px 0px 20px"
         >
         </v-text-field>
 
-        <p class="para-title">Add an image</p>
-        <v-file-input
-          placeholder="Browse file"
-          solo-inverted
+        <p class="para-title">Add an Image{{ data.image }}</p>
+        <v-text-field
+          v-model="data.image"
           prepend-icon="mdi-camera"
-          style="margin: 0px 15px 0px 15px"
-        >
-        </v-file-input>
+        ></v-text-field>
       </v-form>
       <br />
       <div class="text-center">
-        <v-btn style="width: 130px" rounded color="#ffab01" dark>
-          Post this
+        <v-btn
+          @click="createNewPost"
+          style="width: 130px"
+          rounded
+          color="#ffab01"
+          dark
+        >
+          <a :href="`/post/${roomId}`"> Post this </a>
         </v-btn>
       </div>
     </v-app>
@@ -44,12 +48,47 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: " PostAdd",
+  data() {
+    return {
+      title: "PostAdd",
+      roomId: this.$route.params.roomId,
+      data: {},
+      newPost: [],
+    };
+  },
+
+  methods: {
+    async createNewPost() {
+      var options = {
+        method: "POST",
+        url: "http://localhost:3000/Post/create",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          name: this.data.name,
+          image: this.data.image,
+          creator: "507f1f77bcf86cd799439014",
+          Room: this.roomId,
+        },
+      };
+
+      const newPostCreated = await axios.request(options);
+      this.newPost = newPostCreated.data.data;
+    },
+  },
 };
 </script>
 
 <style scoped>
+.v-application a {
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
 .para-title {
   margin-right: 60%;
 }
