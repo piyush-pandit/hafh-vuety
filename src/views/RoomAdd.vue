@@ -46,9 +46,9 @@
           dark
           
         >
-        <a :href="`/room/${rvId}`"> </a>
+        <a :href="`/room/${rvId}`"> 
           Add Room
-          
+          </a>
         </v-btn>
       </div>
       <!-- </router-link> -->
