@@ -113,4 +113,28 @@ export default {
 .main {
   border-radius: 0px 0px 20px 20px;
 }
+
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: green;
+  background-color: transparent;
+}
+
+.btn {
+  width: 120px;
+  margin: 10px 0px 0px -30px;
+  text-transform: capitalize;
+  background: linear-gradient(to right, #1e1f1f 63%, #f6eef1 98%);
+}
 </style>
