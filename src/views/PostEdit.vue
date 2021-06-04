@@ -7,19 +7,19 @@
       <v-card-text>
         <v-form class="px-3">
           <v-text-field
-            v-model="roomData.name"
-            label="Name Of Room"
+            v-model="postData.name"
+            label="Name Of Post"
           ></v-text-field>
           <v-text-field
-            v-model="roomData.image"
+            v-model="postData.image"
             label="New image"
             prepend-icon="mdi-camera"
           ></v-text-field>
 
           <v-spacer></v-spacer>
-          <a :href="`/room/${rvId}`">
-            <v-btn @click="updateRoom" class="success mx-0 mt-3"
-              >Update Room</v-btn
+          <a :href="`/Post/${roomId}`">
+            <v-btn @click="updatePoom" class="success mx-0 mt-3"
+              >Update Post</v-btn
             >
           </a>
         </v-form>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-//import axios from "axios";
+import axios from "axios";
 export default {
   name: "PostEdit",
   data() {
@@ -42,6 +42,7 @@ export default {
       //rvId: this.$route.params.rvId,
       //data: {},
       roomData: {},
+      postData: [],
     };
   },
 
@@ -54,6 +55,13 @@ export default {
   methods: {
     async getPostData() {
       //console.log(this.roomId);
+      const options = {
+        method: "GET",
+        url: `http://localhost:3000/Post/getById/${this.postId}`,
+      };
+
+      const gotPostData = await axios.request(options);
+      this.postData = gotPostData.data;
     },
     async updatePost() {},
   },
