@@ -9,7 +9,7 @@
                 <v-icon>mdi-arrow-left</v-icon>
               </v-btn>
 
-              <v-toolbar-title> Add Room/Area</v-toolbar-title>
+              <v-toolbar-title> Add Room/Area </v-toolbar-title>
             </v-toolbar>
           </div>
         </v-container>
@@ -18,7 +18,7 @@
 
       <v-form class="px-3">
         <!-- <v-text-field v-model="data.title" label="Name Of Rv"></v-text-field> -->
-        <p class="para-title">Name Of Room/Area</p>
+        <p class="para-title">Name Of Room/Area {{data.room}}</p>
         <v-text-field
           v-model="data.room"
           placeholder="Family Rv"
@@ -26,7 +26,7 @@
           style="margin: 0px 20px 0px 20px"
         >
         </v-text-field>
-        <p class="para-title">Add an Image</p>
+        <p class="para-title">Add an Image {{data.image}}</p>
 
         <v-text-field
           v-model="data.image"
@@ -44,8 +44,11 @@
           rounded
           color="#ffab01"
           dark
+          
         >
+        <a :href="`/room/${rvId}`"> </a>
           Add Room
+          
         </v-btn>
       </div>
       <!-- </router-link> -->
@@ -88,13 +91,14 @@ export default {
           name: this.data.room,
           image: this.data.image,
           creator: "507f1f77bcf86cd799439014",
-          Rv: "60a27169c189465f8d338141",
+          Rv: this.rvId,
         },
       };
 
       const newRoomCreated = await axios.request(options);
-      this.newRoom = newRoomCreated.data.data;
-      console.log(this.newRoom);
+      console.log(newRoomCreated);
+     //this.newRoom = newRoomCreated.data;
+      //console.log(this.newRoom);
     },
   },
 };
