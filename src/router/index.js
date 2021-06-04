@@ -12,6 +12,7 @@ import Login from "../views/Login.vue";
 import Post from "../views/Post.vue";
 import PostAdd from "../views/PostAdd.vue";
 import RoomEdit from "../views/RoomEdit.vue";
+import PostEdit from "../views/PostEdit.vue";
 
 Vue.use(VueRouter);
 
@@ -48,7 +49,7 @@ const routes = [
   },
 
   {
-    path: "/roomEdit",
+    path: "/roomEdit/:roomId/:rvId",
     name: "RoomEdit",
     component: RoomEdit,
   },
@@ -69,9 +70,14 @@ const routes = [
     component: PostAdd,
   },
   {
-    path: "/post",
+    path: "/post/:roomId",
     name: "Post",
     component: Post,
+  },
+  {
+    path: "/postEdit",
+    name: "PostEdit",
+    component: PostEdit,
   },
 
   {

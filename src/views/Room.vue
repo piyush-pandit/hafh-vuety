@@ -19,10 +19,15 @@
           </v-list-item-avatar>
 
           <v-list-item-content>
-            <v-list-item-title>{{ room.name }} </v-list-item-title>
+            <router-link
+              :to="{ name: 'Post', params: { roomId: room._id } }"
+              tag="v-btn"
+            >
+              <v-list-item-title>{{ room.name }} </v-list-item-title>
+            </router-link>
           </v-list-item-content>
           <router-link
-            :to="{ name: 'RoomEdit', params: { roomId: room._id } }"
+            :to="{ name: 'RoomEdit', params: { roomId: room._id, rvId: rvId } }"
             tag="v-btn"
           >
             <v-btn class="mx-2" fab dark small color="cyan">
