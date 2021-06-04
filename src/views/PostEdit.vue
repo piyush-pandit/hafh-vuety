@@ -18,7 +18,7 @@
 
           <v-spacer></v-spacer>
           <a :href="`/Post/${roomId}`">
-            <v-btn @click="updatePoom" class="success mx-0 mt-3"
+            <v-btn @click="updatePost" class="success mx-0 mt-3"
               >Update Post</v-btn
             >
           </a>
@@ -63,7 +63,36 @@ export default {
       const gotPostData = await axios.request(options);
       this.postData = gotPostData.data;
     },
-    async updatePost() {},
+    async updatePost() {
+      var options = {
+        method: "PUT",
+        url: "http://localhost:3000/Post/update",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          _id: this.postData._id,
+          name: this.postData.name,
+          image: this.postData.image,
+          creator: "507f1f77bcf86cd799439014",
+        },
+      };
+
+      axios.request(options);
+    },
   },
 };
 </script>
+<style scoped>
+.line {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #abb7b7;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+  color: #abb7b7;
+}
+
+.line span {
+  background: #fff;
+  padding: 0 10px;
+}
+</style>
