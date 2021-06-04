@@ -11,6 +11,7 @@ import SignUp from "../views/SignUp.vue";
 import Login from "../views/Login.vue";
 import Post from "../views/Post.vue";
 import PostAdd from "../views/PostAdd.vue";
+import RoomEdit from "../views/RoomEdit.vue";
 
 Vue.use(VueRouter);
 
