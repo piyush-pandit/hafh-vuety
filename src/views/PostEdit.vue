@@ -30,14 +30,16 @@
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 export default {
-  name: "RoomEdit",
+  name: "PostEdit",
   data() {
     return {
-      title: "RoomEdit",
+      title: "PostEdit",
       roomId: this.$route.params.roomId,
-      rvId: this.$route.params.rvId,
+      postId: this.$route.params.postId,
+
+      //rvId: this.$route.params.rvId,
       //data: {},
       roomData: {},
     };
@@ -45,38 +47,15 @@ export default {
 
   async created() {
     //  if (this.$route.params.rvId) {
-    this.getRoomData();
+    this.getPostData();
     //  }
   },
 
   methods: {
-    async getRoomData() {
-      const options = {
-        method: "GET",
-        url: `http://localhost:3000/Room/getById/${this.roomId}`,
-      };
-
-      const gotRoomdata = await axios.request(options);
-      this.roomData = gotRoomdata.data;
+    async getPostData() {
       //console.log(this.roomId);
     },
-    async updateRoom() {
-      console.log("update room");
-      const options = {
-        method: "PUT",
-        url: "http://localhost:3000/Room/update",
-        headers: { "Content-Type": "application/json" },
-        data: {
-          _id: this.roomData._id,
-          name: this.roomData.name,
-          image: this.roomData.image,
-          creator: "507f1f77bcf86cd799439014",
-        },
-      };
-
-      const updateRoom = await axios.request(options);
-      console.log(updateRoom);
-    },
+    async updatePost() {},
   },
 };
 </script>

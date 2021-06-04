@@ -8,32 +8,6 @@
         <!-- <v-card-title><v-icon>mdi-arrow-left</v-icon>Kitchen</v-card-title> -->
       </v-img>
       <v-card-title><strong>Your List</strong></v-card-title>
-
-      <v-list-item>
-        <v-list-item-avatar>
-          <v-img
-            src="https://miro.medium.com/max/600/1*PiHoomzwh9Plr9_GA26JcA.png"
-          ></v-img>
-        </v-list-item-avatar>
-
-        <div style="margin-left: 10px">
-          <v-list-item-title class="text-h6">Chintan Shah</v-list-item-title>
-          <v-list-item-subtitle>28/05/2021</v-list-item-subtitle>
-        </div>
-        <v-spacer />
-        <v-btn outlined rounded color="#ffab01" dark small> Add to Old </v-btn>
-      </v-list-item>
-
-      <div>
-        <v-img
-          style="border-radius: 20px; margin: 5px"
-          src="https://learn.compactappliance.com/wp-content/uploads/2017/12/steamed-broccoli.jpg"
-        >
-        </v-img>
-        <p style="margin-right: 60%">Buy Broccoli</p>
-        <br />
-        <p class="line"><span>Old</span></p>
-      </div>
       <v-list v-for="post in posts" v-bind:key="post._id">
         <v-list-item>
           <v-list-item-avatar>
@@ -43,12 +17,19 @@
           </v-list-item-avatar>
 
           <div style="margin-left: 10px">
-            <v-list-item-title class="text-h6">{{
-              post.name
-            }}</v-list-item-title>
+            <v-list-item-title class="text-h6">Chintan Shah</v-list-item-title>
             <v-list-item-subtitle>28/05/2021</v-list-item-subtitle>
           </div>
           <v-spacer />
+          <router-link
+            :to="{
+              name: 'PostEdit',
+              params: { roomId: roomId, postId: post._id },
+            }"
+            tag="v-btn"
+          >
+            <v-btn outlined rounded color="#ffab01" dark small> Edit </v-btn>
+          </router-link>
           <v-btn
             @click="deletePost(post._id)"
             outlined
@@ -59,6 +40,45 @@
           >
             Delete
           </v-btn>
+          <v-btn outlined rounded color="#ffab01" dark small>
+            Add to Old
+          </v-btn>
+        </v-list-item>
+        <div>
+          <v-img
+            style="border-radius: 20px; margin: 5px"
+            src="https://learn.compactappliance.com/wp-content/uploads/2017/12/steamed-broccoli.jpg"
+          >
+          </v-img>
+          <p style="margin-right: 60%">{{ post.name }}</p>
+          <br />
+        </div>
+      </v-list>
+      <p class="line"><span>Old</span></p>
+
+      <v-list>
+        <v-list-item>
+          <v-list-item-avatar>
+            <v-img
+              src="https://miro.medium.com/max/600/1*PiHoomzwh9Plr9_GA26JcA.png"
+            ></v-img>
+          </v-list-item-avatar>
+
+          <div style="margin-left: 10px">
+            <v-list-item-title class="text-h6">Chintan Shah</v-list-item-title>
+            <v-list-item-subtitle>28/05/2021</v-list-item-subtitle>
+          </div>
+          <v-spacer />
+          <!-- <v-btn
+            @click="deletePost(post._id)"
+            outlined
+            rounded
+            color="#ffab01"
+            dark
+            small
+          >
+            Delete
+          </v-btn> -->
         </v-list-item>
 
         <div>
