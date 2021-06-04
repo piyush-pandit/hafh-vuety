@@ -18,7 +18,7 @@
 
       <v-form class="px-3">
         <!-- <v-text-field v-model="data.title" label="Name Of Rv"></v-text-field> -->
-        <p class="para-title">Name Of Room/Area {{data.room}}</p>
+        <p class="para-title">Name Of Room/Area {{ data.room }}</p>
         <v-text-field
           v-model="data.room"
           placeholder="Family Rv"
@@ -26,7 +26,7 @@
           style="margin: 0px 20px 0px 20px"
         >
         </v-text-field>
-        <p class="para-title">Add an Image {{data.image}}</p>
+        <p class="para-title">Add an Image {{ data.image }}</p>
 
         <v-text-field
           v-model="data.image"
@@ -44,11 +44,8 @@
           rounded
           color="#ffab01"
           dark
-          
         >
-        <a :href="`/room/${rvId}`"> 
-          Add Room
-          </a>
+          <a :href="`/room/${rvId}`"> Add Room </a>
         </v-btn>
       </div>
       <!-- </router-link> -->
@@ -96,8 +93,9 @@ export default {
       };
 
       const newRoomCreated = await axios.request(options);
-      console.log(newRoomCreated);
-     //this.newRoom = newRoomCreated.data;
+      this.newRoom = newRoomCreated.data;
+      //console.log(newRoomCreated);
+      //this.newRoom = newRoomCreated.data;
       //console.log(this.newRoom);
     },
   },

@@ -45,6 +45,12 @@ const routes = [
     name: "RoomAdd",
     component: RoomAdd,
   },
+
+  {
+    path: "/roomEdit",
+    name: "RoomEdit",
+    component: RoomEdit,
+  },
   {
     path: "/login",
     name: "Login",

@@ -22,24 +22,24 @@
             <v-list-item-title>{{ room.name }} </v-list-item-title>
           </v-list-item-content>
           <router-link
-          :to="{ name: 'RoomEdit', params: { roomId: room._id } }"
-          tag="v-btn"
-        >
-          <v-btn class="mx-2" fab dark small color="cyan">
-            <v-icon dark> mdi-pencil </v-icon>
-          </v-btn>
-        </router-link>
+            :to="{ name: 'RoomEdit', params: { roomId: room._id } }"
+            tag="v-btn"
+          >
+            <v-btn class="mx-2" fab dark small color="cyan">
+              <v-icon dark> mdi-pencil </v-icon>
+            </v-btn>
+          </router-link>
 
-        <v-btn
-          @click="deleteRoom(room._id)"
-          class="mx-2"
-          fab
-          dark
-          small
-          color="cyan"
-        >
-          <v-icon dark> mdi-delete </v-icon>
-        </v-btn>
+          <v-btn
+            @click="deleteRoom(room._id)"
+            class="mx-2"
+            fab
+            dark
+            small
+            color="cyan"
+          >
+            <v-icon dark> mdi-delete </v-icon>
+          </v-btn>
         </v-list-item>
       </v-list>
       <v-card-text>
@@ -89,15 +89,15 @@ export default {
       this.rooms = roomsList.data.data;
       console.log(roomsList);
     },
-    async deleteRoom(){
+    async deleteRoom() {
       var options = {
-  method: 'DELETE',
-  url: 'http://localhost:3000/Room/delete',
-  headers: {'Content-Type': 'application/json'},
-  data: {_id: '60b9bd677b9d8608bd9eda48'}
-};
+        method: "DELETE",
+        url: "http://localhost:3000/Room/delete",
+        headers: { "Content-Type": "application/json" },
+        data: { _id: "60b9bd677b9d8608bd9eda48" },
+      };
 
-axios.request(options)
+      axios.request(options);
     },
   },
 };
