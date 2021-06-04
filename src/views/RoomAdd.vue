@@ -48,12 +48,7 @@
           <a :href="`/room/${rvId}`"> Add Room </a>
         </v-btn>
       </div>
-      <!-- </router-link> -->
 
-      <!-- <router-link :to="{ name: 'Rv' }">
-        
-        <v-btn @click="createNewRv" class="success mx-0 mt-3">Add RV</v-btn>
-      </router-link> -->
       <br />
       <div class="text-center">
         <v-btn outlined rounded color="#ffab01" dark>

@@ -34,7 +34,7 @@
         <br />
         <p class="line"><span>Old</span></p>
       </div>
-      <v-list>
+      <v-list v-for="post in posts" v-bind:key="post._id">
         <v-list-item>
           <v-list-item-avatar>
             <v-img
@@ -43,7 +43,9 @@
           </v-list-item-avatar>
 
           <div style="margin-left: 10px">
-            <v-list-item-title class="text-h6">Chintan Shah</v-list-item-title>
+            <v-list-item-title class="text-h6">{{
+              post.name
+            }}</v-list-item-title>
             <v-list-item-subtitle>28/05/2021</v-list-item-subtitle>
           </div>
         </v-list-item>
@@ -59,11 +61,21 @@
 
       <div>
         <v-card-text>
-          <v-fab-transition>
-            <v-btn color="#ffab01" dark right fab fixed bottom href="/postAdd">
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </v-fab-transition>
+          <router-link :to="{ name: 'PostAdd', params: { roomId: roomId } }">
+            <v-fab-transition>
+              <v-btn
+                color="#ffab01"
+                dark
+                right
+                fab
+                fixed
+                bottom
+                href="/postAdd"
+              >
+                <v-icon>mdi-plus</v-icon>
+              </v-btn>
+            </v-fab-transition>
+          </router-link>
         </v-card-text>
       </div>
     </v-card>
@@ -93,7 +105,7 @@ export default {
         data: {
           creator: "507f1f77bcf86cd799439014",
           page: 1,
-          Room: "60b9b56a47382d0582ca1906",
+          Room: this.roomId,
         },
       };
 

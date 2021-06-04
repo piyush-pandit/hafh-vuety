@@ -65,7 +65,7 @@ const routes = [
   },
 
   {
-    path: "/postAdd",
+    path: "/postAdd/:roomId",
     name: "PostAdd",
     component: PostAdd,
   },
