@@ -25,7 +25,7 @@
         >
         </v-text-field>
 
-        <p class="para-title">Add an Image{{ data.image }}</p>
+        <p class="para-title">Add an Image</p>
         <v-text-field
           v-model="data.image"
           prepend-icon="mdi-camera"
