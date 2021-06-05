@@ -61,6 +61,8 @@
           >
             Add to Old
           </v-btn>
+
+          <v-icon>mdi-dots-vertical</v-icon>
         </v-list-item>
         <div>
           <v-img
