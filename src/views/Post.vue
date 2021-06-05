@@ -6,6 +6,20 @@
         src="https://sc02.alicdn.com/kf/H14b210d2f37942ea86a6ef2fc81cdc61Y/226479103/H14b210d2f37942ea86a6ef2fc81cdc61Y.png"
       >
         <!-- <v-card-title><v-icon>mdi-arrow-left</v-icon>Kitchen</v-card-title> -->
+        <v-fab-transition>
+          <v-btn
+            class="btn"
+            style="color: white"
+            top
+            left
+            fixed
+            small
+            light
+            href="/room"
+          >
+            <v-icon dark left> mdi-arrow-left </v-icon> Kitchen
+          </v-btn>
+        </v-fab-transition>
       </v-img>
       <v-card-title><strong>Your List</strong></v-card-title>
       <v-list v-for="post in posts" v-bind:key="post._id">
@@ -165,5 +179,12 @@ export default {
 .line span {
   background: #fff;
   padding: 0 10px;
+}
+
+.btn {
+  width: 120px;
+  margin: 10px 0px 0px -30px;
+  text-transform: capitalize;
+  background: linear-gradient(to right, #1e1f1f 63%, #f6eef1 98%);
 }
 </style>
