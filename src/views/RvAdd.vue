@@ -36,19 +36,17 @@
         <v-spacer></v-spacer>
       </v-form>
       <br />
-      <router-link :to="{ name: 'Rv' }" tag="v-btn">
-        <div class="text-center">
-          <v-btn
-            @click="createNewRv"
-            style="width: 100px"
-            rounded
-            color="#ffab01"
-            dark
-          >
-            Add Rv
-          </v-btn>
-        </div>
-      </router-link>
+      <div class="text-center">
+        <v-btn
+          @click="createNewRv"
+          style="width: 100px"
+          rounded
+          color="#ffab01"
+          dark
+        >
+          Add Rv
+        </v-btn>
+      </div>
 
       <!-- <router-link :to="{ name: 'Rv' }">
         
