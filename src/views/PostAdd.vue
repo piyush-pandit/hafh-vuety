@@ -5,7 +5,7 @@
         <v-container fluid>
           <div>
             <v-toolbar>
-              <v-btn icon href="/post">
+              <v-btn icon :href="`/post/${rvId}/${roomId}`">
                 <v-icon>mdi-arrow-left</v-icon>
               </v-btn>
 
@@ -40,7 +40,7 @@
           color="#ffab01"
           dark
         >
-          <a :href="`/post/${roomId}`"> Post this </a>
+          <a :href="`/post/${rvId}/${roomId}`"> Post this </a>
         </v-btn>
       </div>
     </v-app>
@@ -55,6 +55,8 @@ export default {
     return {
       title: "PostAdd",
       roomId: this.$route.params.roomId,
+      rvId: this.$route.params.rvId,
+
       data: {},
       newPost: [],
     };

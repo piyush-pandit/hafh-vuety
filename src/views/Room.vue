@@ -17,7 +17,7 @@
             light
             href="/rv"
           >
-            <v-icon dark left> mdi-arrow-left </v-icon> My Rv
+            <v-icon dark left> mdi-arrow-left </v-icon> {{ rv.name }}
           </v-btn>
         </v-fab-transition>
       </v-img>
@@ -79,7 +79,10 @@
 
           <v-list-item-content>
             <router-link
-              :to="{ name: 'Post', params: { roomId: room._id } }"
+              :to="{
+                name: 'Post',
+                params: { rvId: rvId, roomId: room._id },
+              }"
               tag="v-btn"
             >
               <v-list-item-title style="text-align: left; margin-left: 5px"
@@ -132,6 +135,7 @@ export default {
       rvId: this.$route.params.rvId,
       data: {},
       rooms: [],
+      rv: {},
     };
   },
 
@@ -139,6 +143,18 @@ export default {
     this.listOfRooms();
   },
   methods: {
+    async getRvData() {
+      const options = {
+        method: "GET",
+        url: `http://localhost:3000/Rv/getById/${this.rvId}`,
+        headers: { "Content-Type": "application/json" },
+      };
+
+      const rvData = await axios.request(options);
+      this.rv = rvData.data;
+
+      console.log(this.rv);
+    },
     async listOfRooms() {
       const options = {
         method: "POST",
@@ -154,6 +170,7 @@ export default {
       const roomsList = await axios.request(options);
       this.rooms = roomsList.data.data;
       console.log(roomsList);
+      this.getRvData();
     },
     async deleteRoom(roomId) {
       var options = {

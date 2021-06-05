@@ -1,9 +1,20 @@
 <template>
   <div>
+    <v-card flat>
+      <v-container fluid>
+        <div>
+          <v-toolbar>
+            <v-btn icon :href="`/Post/${rvId}/${roomId}`">
+              <v-icon>mdi-arrow-left</v-icon>
+            </v-btn>
+
+            <v-toolbar-title> Edit Post </v-toolbar-title>
+          </v-toolbar>
+        </div>
+      </v-container>
+    </v-card>
+    <br />
     <v-card>
-      <v-card-title>
-        <h2>Edit Post</h2>
-      </v-card-title>
       <v-card-text>
         <v-form class="px-3">
           <v-text-field
@@ -17,11 +28,13 @@
           ></v-text-field>
 
           <v-spacer></v-spacer>
-          <a :href="`/Post/${roomId}`">
-            <v-btn @click="updatePost" class="success mx-0 mt-3"
-              >Update Post</v-btn
-            >
-          </a>
+
+          <v-btn
+            @click="updatePost"
+            class="success mx-0 mt-3"
+            :href="`/Post/${rvId}/${roomId}`"
+            >Update Post</v-btn
+          >
         </v-form>
       </v-card-text>
     </v-card>

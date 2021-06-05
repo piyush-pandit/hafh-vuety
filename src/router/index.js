@@ -70,12 +70,12 @@ const routes = [
     component: PostAdd,
   },
   {
-    path: "/post/:roomId",
+    path: "/post/:rvId/:roomId",
     name: "Post",
     component: Post,
   },
   {
-    path: "/postEdit/:roomId/:postId",
+    path: "/postEdit/:rvId/:roomId/:postId",
     name: "PostEdit",
     component: PostEdit,
   },

@@ -5,20 +5,17 @@
         style="border-radius: 0px 0px 30px 30px"
         src="https://sc02.alicdn.com/kf/H14b210d2f37942ea86a6ef2fc81cdc61Y/226479103/H14b210d2f37942ea86a6ef2fc81cdc61Y.png"
       >
-        <!-- <v-card-title><v-icon>mdi-arrow-left</v-icon>Kitchen</v-card-title> -->
         <v-fab-transition>
-          <v-btn
-            class="btn"
-            style="color: white"
-            top
-            left
-            fixed
-            small
-            light
-            href="/room"
+          <router-link
+            :to="{
+              name: 'Room',
+              params: { rvId: rvId },
+            }"
           >
-            <v-icon dark left> mdi-arrow-left </v-icon> Kitchen
-          </v-btn>
+            <v-btn class="btn" style="color: white" top left fixed small light>
+              <v-icon dark left> mdi-arrow-left </v-icon> {{ room.name }}
+            </v-btn>
+          </router-link>
         </v-fab-transition>
       </v-img>
       <v-card-title><strong>Your List</strong></v-card-title>
@@ -38,7 +35,7 @@
           <router-link
             :to="{
               name: 'PostEdit',
-              params: { roomId: roomId, postId: post._id },
+              params: { rvId: rvId, roomId: roomId, postId: post._id },
             }"
             tag="v-btn"
           >
@@ -54,7 +51,14 @@
           >
             Delete
           </v-btn>
-          <v-btn outlined rounded color="#ffab01" dark small>
+          <v-btn
+            outlined
+            rounded
+            color="#ffab01"
+            dark
+            small
+            @click="archivePost()"
+          >
             Add to Old
           </v-btn>
         </v-list-item>
@@ -106,7 +110,12 @@
 
       <div>
         <v-card-text>
-          <router-link :to="{ name: 'PostAdd', params: { roomId: roomId } }">
+          <router-link
+            :to="{
+              name: 'PostAdd',
+              params: { roomId: roomId, rvId: rvId },
+            }"
+          >
             <v-fab-transition>
               <v-btn color="#ffab01" dark right fab fixed bottom>
                 <v-icon>mdi-plus</v-icon>
@@ -127,13 +136,28 @@ export default {
     return {
       title: "Post",
       roomId: this.$route.params.roomId,
+      // roomName: this.$route.params.roomName,
+      rvId: this.$route.params.rvId,
+
       posts: [],
+      room: {},
     };
   },
   created() {
     this.listOfPosts();
   },
   methods: {
+    async getRoomData() {
+      const options = {
+        method: "GET",
+        url: `http://localhost:3000/Room/getById/${this.roomId}`,
+      };
+
+      const gotRoomdata = await axios.request(options);
+      this.room = gotRoomdata.data;
+      console.log(this.gotRoomdata);
+      // console.log(this.room);
+    },
     async listOfPosts() {
       const options = {
         method: "POST",
@@ -148,6 +172,7 @@ export default {
 
       const postList = await axios.request(options);
       this.posts = postList.data.data;
+      this.getRoomData();
     },
 
     async deletePost(postId) {
@@ -161,6 +186,16 @@ export default {
 
       await axios.request(options);
       this.listOfPosts();
+    },
+    async archivePost() {
+      var options = {
+        method: "POST",
+        url: "http://localhost:3000/Post/archive",
+        headers: { "Content-Type": "application/json" },
+        data: { _id: "60b9f579622e7018d1eb6ea6" },
+      };
+
+      await axios.request(options);
     },
   },
 };
