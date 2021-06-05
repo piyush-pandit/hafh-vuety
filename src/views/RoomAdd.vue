@@ -45,7 +45,7 @@
           color="#ffab01"
           dark
         >
-          <a :href="`/room/${rvId}`"> Add Room </a>
+          Add Room
         </v-btn>
       </div>
 
