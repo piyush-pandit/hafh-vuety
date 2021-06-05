@@ -92,6 +92,11 @@ export default {
       //console.log(newRoomCreated);
       //this.newRoom = newRoomCreated.data;
       //console.log(this.newRoom);
+      this.$router.push({
+        name: "Room",
+        params: { rvId: this.rvId },
+      });
+      return;
     },
   },
 };

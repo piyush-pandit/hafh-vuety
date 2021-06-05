@@ -78,10 +78,10 @@ export default {
 
       const newPostCreated = await axios.request(options);
       // route to new url
-      // this.$router.go({
-      //   name: "details",
-      //   params: { selGen: selectedMovieForPage },
-      // });
+      this.$router.go({
+        name: "Post",
+        params: { rvId: this.rvId, roomId: this.roomId },
+      });
       this.newPost = newPostCreated.data.data;
     },
   },

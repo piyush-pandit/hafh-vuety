@@ -16,29 +16,27 @@
       </v-card>
       <br />
 
-      <v-form class="px-3">
-        <!-- <v-text-field v-model="data.title" label="Name Of Rv"></v-text-field> -->
-        <p class="para-title">Name of Rv</p>
-        <v-text-field
-          v-model="data.title"
-          placeholder="Family Rv"
-          solo-inverted
-          style="margin: 0px 20px 0px 20px"
-        >
-        </v-text-field>
-        <p class="para-title">Add an Image</p>
+      <p class="para-title">Name of Rv</p>
+      <v-text-field
+        v-model="data.title"
+        placeholder="Family Rv"
+        solo-inverted
+        style="margin: 0px 20px 0px 20px"
+      >
+      </v-text-field>
+      <p class="para-title">Add an Image</p>
 
-        <v-text-field
-          v-model="data.image"
-          prepend-icon="mdi-camera"
-        ></v-text-field>
+      <v-text-field
+        v-model="data.image"
+        prepend-icon="mdi-camera"
+      ></v-text-field>
 
-        <v-spacer></v-spacer>
-      </v-form>
+      <v-spacer></v-spacer>
+      <!-- </v-form> -->
       <br />
       <div class="text-center">
         <v-btn
-          @click="createNewRv"
+          @click="createNewRv()"
           style="width: 100px"
           rounded
           color="#ffab01"
@@ -47,11 +45,6 @@
           Add Rv
         </v-btn>
       </div>
-
-      <!-- <router-link :to="{ name: 'Rv' }">
-        
-        <v-btn @click="createNewRv" class="success mx-0 mt-3">Add RV</v-btn>
-      </router-link> -->
       <br />
       <div class="text-center">
         <v-btn outlined rounded color="#ffab01" dark>
@@ -85,9 +78,11 @@ export default {
           creator: "507f1f77bcf86cd799439014",
         },
       };
-
-      const newRv = await axios.request(options);
-      console.log(newRv);
+      await axios.request(options);
+      this.$router.push({
+        name: "Rv",
+      });
+      return false;
     },
   },
 };

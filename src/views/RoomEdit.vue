@@ -17,11 +17,10 @@
           ></v-text-field>
 
           <v-spacer></v-spacer>
-          <a :href="`/room/${rvId}`">
-            <v-btn @click="updateRoom" class="success mx-0 mt-3"
-              >Update Room</v-btn
-            >
-          </a>
+
+          <v-btn @click="updateRoom" class="success mx-0 mt-3"
+            >Update Room</v-btn
+          >
         </v-form>
       </v-card-text>
     </v-card>
@@ -76,6 +75,10 @@ export default {
 
       const updateRoom = await axios.request(options);
       console.log(updateRoom);
+      this.$router.push({
+        name: "Room",
+        params: { rvId: this.rvId },
+      });
     },
   },
 };

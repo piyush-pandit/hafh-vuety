@@ -5,19 +5,16 @@
         <h2>Edit an Rv</h2>
       </v-card-title>
       <v-card-text>
-        <v-form class="px-3">
-          <v-text-field v-model="rvData.name" label="Name Of Rv"></v-text-field>
-          <v-text-field
-            v-model="rvData.image"
-            label="New image"
-            prepend-icon="mdi-camera"
-          ></v-text-field>
+        <v-text-field v-model="rvData.name" label="Name Of Rv"></v-text-field>
+        <v-text-field
+          v-model="rvData.image"
+          label="New image"
+          prepend-icon="mdi-camera"
+        ></v-text-field>
 
-          <v-spacer></v-spacer>
-          <router-link :to="{ name: 'Rv' }">
-            <v-btn @click="updateRv" class="success mx-0 mt-3">Update RV</v-btn>
-          </router-link>
-        </v-form>
+        <v-spacer></v-spacer>
+
+        <v-btn @click="updateRv" class="success mx-0 mt-3">Update RV</v-btn>
       </v-card-text>
     </v-card>
     <!-- <p>{{ data }}</p> -->
@@ -71,6 +68,11 @@ export default {
 
       const updateRv = await axios.request(options);
       console.log(updateRv);
+      this.$router.push({
+        name: "Rv",
+        params: { rvId: this.rvId },
+      });
+      return;
     },
   },
 };
