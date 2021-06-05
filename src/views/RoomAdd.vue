@@ -18,7 +18,7 @@
 
       <v-form class="px-3">
         <!-- <v-text-field v-model="data.title" label="Name Of Rv"></v-text-field> -->
-        <p class="para-title">Name Of Room/Area {{ data.room }}</p>
+        <p class="para-title">Name Of Room/Area</p>
         <v-text-field
           v-model="data.room"
           placeholder="Family Rv"
@@ -26,7 +26,7 @@
           style="margin: 0px 20px 0px 20px"
         >
         </v-text-field>
-        <p class="para-title">Add an Image {{ data.image }}</p>
+        <p class="para-title">Add an Image</p>
 
         <v-text-field
           v-model="data.image"
