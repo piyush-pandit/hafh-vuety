@@ -5,7 +5,7 @@
         <v-container fluid>
           <div>
             <v-toolbar>
-              <v-btn icon href="">
+              <v-btn icon href="/rv">
                 <v-icon>mdi-arrow-left</v-icon>
               </v-btn>
 

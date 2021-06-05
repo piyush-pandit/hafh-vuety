@@ -83,7 +83,6 @@
                 name: 'Post',
                 params: { rvId: rvId, roomId: room._id },
               }"
-              tag="v-btn"
             >
               <v-list-item-title style="text-align: left; margin-left: 5px"
                 ><strong>{{ room.name }}</strong>

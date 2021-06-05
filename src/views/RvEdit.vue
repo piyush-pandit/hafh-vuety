@@ -1,9 +1,19 @@
 <template>
   <div>
+    <v-card flat>
+      <v-container fluid>
+        <div>
+          <v-toolbar>
+            <v-btn icon href="/rv">
+              <v-icon>mdi-arrow-left</v-icon>
+            </v-btn>
+
+            <v-toolbar-title> Edit Post </v-toolbar-title>
+          </v-toolbar>
+        </div>
+      </v-container>
+    </v-card>
     <v-card>
-      <v-card-title>
-        <h2>Edit an Rv</h2>
-      </v-card-title>
       <v-card-text>
         <v-text-field v-model="rvData.name" label="Name Of Rv"></v-text-field>
         <v-text-field

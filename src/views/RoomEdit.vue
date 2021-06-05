@@ -1,9 +1,20 @@
 <template>
   <div>
+    <v-card flat>
+      <v-container fluid>
+        <div>
+          <v-toolbar>
+            <v-btn icon :href="`/room/${rvId}`">
+              <v-icon>mdi-arrow-left</v-icon>
+            </v-btn>
+
+            <v-toolbar-title> Edit Post </v-toolbar-title>
+          </v-toolbar>
+        </div>
+      </v-container>
+    </v-card>
+    <br />
     <v-card>
-      <v-card-title>
-        <h2>Edit Room</h2>
-      </v-card-title>
       <v-card-text>
         <v-form class="px-3">
           <v-text-field
