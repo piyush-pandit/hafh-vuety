@@ -57,7 +57,7 @@
             color="#ffab01"
             dark
             small
-            @click="archivePost()"
+            @click="archivePost(post._id)"
           >
             Add to Old
           </v-btn>
@@ -187,12 +187,12 @@ export default {
       await axios.request(options);
       this.listOfPosts();
     },
-    async archivePost() {
+    async archivePost(postId) {
       var options = {
         method: "POST",
         url: "http://localhost:3000/Post/archive",
         headers: { "Content-Type": "application/json" },
-        data: { _id: "60b9f579622e7018d1eb6ea6" },
+        data: { _id: postId },
       };
 
       await axios.request(options);
