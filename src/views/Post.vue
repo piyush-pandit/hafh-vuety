@@ -46,20 +46,17 @@
           >
             <v-btn outlined rounded color="#ffab01" dark small> Edit </v-btn>
           </router-link>
-          <v-dialog v-model="dialog" width="500">
-            <template>
-              <v-btn
-                @click="deletePost(post._id)"
-                outlined
-                rounded
-                color="#ffab01"
-                dark
-                small
-              >
-                Delete
-              </v-btn>
-            </template>
-          </v-dialog>
+
+          <v-btn
+            @click="deletePost(post._id)"
+            outlined
+            rounded
+            color="#ffab01"
+            dark
+            small
+          >
+            Delete
+          </v-btn>
 
           <v-btn
             outlined
