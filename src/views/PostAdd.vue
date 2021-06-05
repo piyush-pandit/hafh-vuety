@@ -40,7 +40,7 @@
           color="#ffab01"
           dark
         >
-          <a :href="`/post/${rvId}/${roomId}`"> Post this </a>
+          Post this
         </v-btn>
       </div>
     </v-app>
@@ -77,6 +77,11 @@ export default {
       };
 
       const newPostCreated = await axios.request(options);
+      // route to new url
+      // this.$router.go({
+      //   name: "details",
+      //   params: { selGen: selectedMovieForPage },
+      // });
       this.newPost = newPostCreated.data.data;
     },
   },
