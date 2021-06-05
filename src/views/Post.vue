@@ -33,7 +33,7 @@
           </v-list-item-avatar>
 
           <div style="margin-left: 10px">
-            <v-list-item-title class="text-h6">Chintan Shah</v-list-item-title>
+            <v-list-item-title class="text-h6">Chintan Shah </v-list-item-title>
             <v-list-item-subtitle>28/05/2021</v-list-item-subtitle>
           </div>
           <v-spacer />
@@ -46,8 +46,12 @@
           >
             <v-btn outlined rounded color="#ffab01" dark small> Edit </v-btn>
           </router-link>
+          <v-flex>
+            <!-- <DeletePost :post-id="post._id" /> -->
+            <DeletePost @dlt="deletePost(post._id)" />
+          </v-flex>
 
-          <v-btn
+          <!-- <v-btn
             @click="deletePost(post._id)"
             outlined
             rounded
@@ -56,7 +60,7 @@
             small
           >
             Delete
-          </v-btn>
+          </v-btn> -->
 
           <v-btn
             outlined
@@ -79,41 +83,6 @@
           </v-img>
           <p style="margin-right: 60%">{{ post.name }}</p>
           <br />
-        </div>
-      </v-list>
-      <p class="line"><span>Old</span></p>
-
-      <v-list>
-        <v-list-item>
-          <v-list-item-avatar>
-            <v-img
-              src="https://miro.medium.com/max/600/1*PiHoomzwh9Plr9_GA26JcA.png"
-            ></v-img>
-          </v-list-item-avatar>
-
-          <div style="margin-left: 10px">
-            <v-list-item-title class="text-h6">Chintan Shah</v-list-item-title>
-            <v-list-item-subtitle>28/05/2021</v-list-item-subtitle>
-          </div>
-          <v-spacer />
-          <!-- <v-btn
-            @click="deletePost(post._id)"
-            outlined
-            rounded
-            color="#ffab01"
-            dark
-            small
-          >
-            Delete
-          </v-btn> -->
-        </v-list-item>
-
-        <div>
-          <v-img
-            style="border-radius: 20px; margin: 5px"
-            src="http://images2.fanpop.com/images/photos/5400000/Random-Food-random-5409310-1280-800.jpg"
-          >
-          </v-img>
         </div>
       </v-list>
 
@@ -139,7 +108,10 @@
 
 <script>
 import axios from "axios";
+import DeletePost from "./DeletePost.vue";
+
 export default {
+  components: { DeletePost },
   name: "Post",
   data() {
     return {
