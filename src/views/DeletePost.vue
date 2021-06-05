@@ -35,33 +35,13 @@
 <script>
 //import axios from "axios";
 export default {
-  props: ["postId"],
-  //   props: {
-  //     method: { type: Function },
-  //   },
-
   data() {
     return {
       dialog: false,
     };
   },
-  //   mounted() {
-  //     this.method();
-  //   },
 
   methods: {
-    // async deletePost(postId) {
-    //   console.log("delete");
-    //   var options = {
-    //     method: "DELETE",
-    //     url: "http://localhost:3000/Post/delete",
-    //     headers: { "Content-Type": "application/json" },
-    //     data: { _id: postId },
-    //   };
-    //   await axios.request(options);
-    //   this.listOfPosts();
-    //   console.log(postId);
-    // },
     deletePost() {
       this.$emit("dlt");
     },
