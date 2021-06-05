@@ -77,12 +77,13 @@ export default {
       };
 
       const newPostCreated = await axios.request(options);
+      this.newPost = newPostCreated.data.data;
       // route to new url
-      this.$router.go({
+      this.$router.push({
         name: "Post",
         params: { rvId: this.rvId, roomId: this.roomId },
       });
-      this.newPost = newPostCreated.data.data;
+      return;
     },
   },
 };

@@ -52,7 +52,7 @@ export default {
       roomId: this.$route.params.roomId,
       postId: this.$route.params.postId,
 
-      //rvId: this.$route.params.rvId,
+      rvId: this.$route.params.rvId,
       //data: {},
       roomData: {},
       postData: [],
@@ -90,6 +90,12 @@ export default {
       };
 
       axios.request(options);
+
+      this.$router.push({
+        name: "Post",
+        params: { rvId: this.rvId, roomId: this.roomId },
+      });
+      return;
     },
   },
 };
