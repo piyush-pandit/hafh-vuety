@@ -19,6 +19,11 @@
         </v-fab-transition>
       </v-img>
       <v-card-title><strong>Your List</strong></v-card-title>
+
+      <v-btn @click="archiveAll()" outlined rounded color="#ffab01" dark small>
+        Archive All
+      </v-btn>
+
       <v-list v-for="post in posts" v-bind:key="post._id">
         <v-list-item>
           <v-list-item-avatar>
@@ -41,16 +46,21 @@
           >
             <v-btn outlined rounded color="#ffab01" dark small> Edit </v-btn>
           </router-link>
-          <v-btn
-            @click="deletePost(post._id)"
-            outlined
-            rounded
-            color="#ffab01"
-            dark
-            small
-          >
-            Delete
-          </v-btn>
+          <v-dialog v-model="dialog" width="500">
+            <template>
+              <v-btn
+                @click="deletePost(post._id)"
+                outlined
+                rounded
+                color="#ffab01"
+                dark
+                small
+              >
+                Delete
+              </v-btn>
+            </template>
+          </v-dialog>
+
           <v-btn
             outlined
             rounded
@@ -198,6 +208,18 @@ export default {
       };
 
       await axios.request(options);
+      this.listOfPosts();
+    },
+    async archiveAll() {
+      const options = {
+        method: "POST",
+        url: "http://localhost:3000/Post/archiveAll",
+        headers: { "Content-Type": "application/json" },
+        data: { Room: this.roomId },
+      };
+
+      await axios.request(options);
+      this.listOfPosts();
     },
   },
 };
