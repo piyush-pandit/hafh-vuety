@@ -71,7 +71,7 @@ export default {
         data: {
           name: this.data.name,
           image: this.data.image,
-          creator: "507f1f77bcf86cd799439014",
+
           Room: this.roomId,
         },
       };

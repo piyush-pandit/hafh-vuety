@@ -163,7 +163,6 @@ export default {
         url: "http://localhost:3000/Room/search",
         headers: { "Content-Type": "application/json" },
         data: {
-          creator: "507f1f77bcf86cd799439014",
           page: 1,
           Rv: this.rvId,
         },

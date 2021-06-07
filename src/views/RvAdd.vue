@@ -75,7 +75,6 @@ export default {
         data: {
           name: this.data.title,
           image: this.data.image,
-          creator: "507f1f77bcf86cd799439014",
         },
       };
       await axios.request(options);

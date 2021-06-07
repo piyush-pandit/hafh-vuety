@@ -85,7 +85,6 @@ export default {
           _id: this.postData._id,
           name: this.postData.name,
           image: this.postData.image,
-          creator: "507f1f77bcf86cd799439014",
         },
       };
 

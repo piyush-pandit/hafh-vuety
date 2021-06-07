@@ -72,7 +72,6 @@ export default {
           _id: this.rvData._id,
           name: this.rvData.name,
           image: this.rvData.image,
-          creator: "507f1f77bcf86cd799439014",
         },
       };
 

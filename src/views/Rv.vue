@@ -106,7 +106,7 @@ export default {
         method: "POST",
         url: "http://localhost:3000/Rv/search",
         headers: { "Content-Type": "application/json" },
-        data: { creator: "507f1f77bcf86cd799439014", page: 1 },
+        data: { page: 1 }, // remove creator id
       };
       const data = await axios.request(options);
       //console.log(this.pageNo);

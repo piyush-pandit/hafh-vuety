@@ -145,7 +145,6 @@ export default {
         url: "http://localhost:3000/Post/search",
         headers: { "Content-Type": "application/json" },
         data: {
-          creator: "507f1f77bcf86cd799439014",
           page: 1,
           Room: this.roomId,
         },

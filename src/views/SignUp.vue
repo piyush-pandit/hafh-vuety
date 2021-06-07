@@ -68,6 +68,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Login",
   data: () => ({
@@ -97,6 +98,23 @@ export default {
     passwordConfirmationRule() {
       return () =>
         this.password === this.confirmPassword || "Password must match";
+    },
+  },
+  methods: {
+    async signUp() {
+      var options = {
+        method: "POST",
+        url: "http://localhost:3001/user/signup",
+        headers: { "Content-Type": "application/json" },
+        data: {
+          email: this.email,
+          //mobile: "9819222221",
+          name: this.name,
+          password: this.password,
+        },
+      };
+
+      await axios.request(options);
     },
   },
 };

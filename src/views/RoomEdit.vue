@@ -80,7 +80,6 @@ export default {
           _id: this.roomData._id,
           name: this.roomData.name,
           image: this.roomData.image,
-          creator: "507f1f77bcf86cd799439014",
         },
       };
 

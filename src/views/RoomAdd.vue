@@ -82,7 +82,7 @@ export default {
         data: {
           name: this.data.room,
           image: this.data.image,
-          creator: "507f1f77bcf86cd799439014",
+
           Rv: this.rvId,
         },
       };
