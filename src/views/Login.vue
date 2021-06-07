@@ -44,7 +44,9 @@
             <p style="padding-top: 20px; margin-right: 60px">
               Dont have an account?
               <a href="/signup">
-                <span style="color: #ffab01">Signup here !</span></a
+                <span style="color: #ffab01" @click="login"
+                  >Signup here !</span
+                ></a
               >
             </p>
           </v-form>
@@ -55,6 +57,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Login",
   data: () => ({
@@ -70,6 +73,18 @@ export default {
     password: "",
     passwordRules: [(v) => !!v || "Password is required"],
   }),
+  methods: {
+    async login() {
+      const options = {
+        method: "POST",
+        url: "http://localhost:3001/user/login",
+        headers: { "Content-Type": "application/json" },
+        data: { email: this.email, password: this.password },
+      };
+
+      await axios.request(options);
+    },
+  },
 };
 </script>
 

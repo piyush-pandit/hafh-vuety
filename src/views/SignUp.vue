@@ -56,7 +56,7 @@
             ></v-text-field>
 
             <div class="text-center">
-              <v-btn rounded color="#ffab01" dark block href="/login">
+              <v-btn rounded color="#ffab01" dark block @click="signUp">
                 Sign Up
               </v-btn>
             </div>
@@ -115,6 +115,10 @@ export default {
       };
 
       await axios.request(options);
+
+      this.$router.push({
+        name: "Rv",
+      });
     },
   },
 };
