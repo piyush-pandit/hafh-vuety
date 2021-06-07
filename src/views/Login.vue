@@ -43,7 +43,7 @@
 
             <p style="padding-top: 20px; margin-right: 60px">
               Dont have an account?
-              <a href="/signup">
+              <a>
                 <span style="color: #ffab01" @click="login"
                   >Signup here !</span
                 ></a
@@ -83,6 +83,9 @@ export default {
       };
 
       await axios.request(options);
+      this.$router.push({
+        name: "Rv",
+      });
     },
   },
 };
