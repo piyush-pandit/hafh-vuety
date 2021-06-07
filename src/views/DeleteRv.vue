@@ -24,7 +24,7 @@
           <v-btn color="green darken-1" text @click="dialog = false">
             Cancel
           </v-btn>
-          <v-btn color="green darken-1" text @click="deletePost()">
+          <v-btn color="green darken-1" text @click="deleteRv()">
             Delete
           </v-btn>
         </v-card-actions>
@@ -42,7 +42,7 @@ export default {
   },
 
   methods: {
-    deletePost() {
+    deleteRv() {
       this.$emit("dlt");
     },
   },

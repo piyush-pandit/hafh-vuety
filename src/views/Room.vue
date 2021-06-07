@@ -97,6 +97,9 @@
               <v-icon dark> mdi-pencil </v-icon>
             </v-btn>
           </router-link>
+          <!-- <v-flex>
+            <DeleteRoom @dlt="deleteRoom(room._id)" />
+          </v-flex> -->
 
           <v-btn
             @click="deleteRoom(room._id)"

@@ -52,6 +52,10 @@
               <v-icon dark> mdi-pencil </v-icon>
             </v-btn>
           </router-link>
+          <!-- <v-flex>
+            <DeletePost :post-id="post._id" />
+           
+          </v-flex> -->
 
           <v-btn
             @click="deleteRv(Rv._id)"
@@ -75,6 +79,7 @@
         <!-- <h6>New Area</h6> -->
       </v-card-text>
     </v-card>
+    <v-card v-intersect="infiniteScrolling"></v-card>
   </div>
 </template>
 <script>
@@ -83,7 +88,9 @@ export default {
   data() {
     return {
       totalRvs: [],
-      pageCount: [],
+      // pageCount: [],
+      // pageNo:1,
+      //  loaded: true,
     };
   },
   created() {
@@ -91,6 +98,10 @@ export default {
   },
   methods: {
     async listOfRvs() {
+      //console.log(this.pageNo);
+      // this.pageNo++;
+
+      //this.loaded = false;
       const options = {
         method: "POST",
         url: "http://localhost:3000/Rv/search",
@@ -98,10 +109,17 @@ export default {
         data: { creator: "507f1f77bcf86cd799439014", page: 1 },
       };
       const data = await axios.request(options);
+      //console.log(this.pageNo);
 
       this.totalRvs = data.data.data;
+      //data.data.data.forEach((element) => {
+      // this.totalRvs.push(element);
+      //   console.log(element);
+      // });
+      console.log(this.totalRvs);
       this.pageCount = data.data;
       this.maxPage = this.pageCount.maxPage;
+      this.loaded = true;
     },
 
     async deleteRv(rvId) {
@@ -115,6 +133,18 @@ export default {
       await axios.request(options);
 
       this.listOfRvs();
+    },
+    infiniteScrolling() {
+      if (this.loaded) {
+        console.log("scroll");
+        return;
+      }
+      // if (this.pageNo <= this.maxPage) {
+      this.pageNo++;
+      console.log(this.pageNo);
+
+      // this.listOfRvs();
+      // }
     },
   },
 };
