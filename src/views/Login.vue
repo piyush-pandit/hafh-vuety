@@ -60,7 +60,7 @@ export default {
   name: "Login",
   data: () => ({
     valid: false,
-    email: "chintan@wohlig.com",
+    email: "",
     emailRules: [
       (v) => !!v || "E-mail is Required",
       (v) =>
@@ -68,7 +68,7 @@ export default {
         /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
         "E-mail must be valid",
     ],
-    password: "chintan123",
+    password: "",
     passwordRules: [(v) => !!v || "Password is required"],
   }),
   methods: {
