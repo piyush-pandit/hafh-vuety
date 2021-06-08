@@ -71,6 +71,10 @@ export default {
       const options = {
         method: "GET",
         url: `http://localhost:3000/Post/getById/${this.postId}`,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
       };
 
       const gotPostData = await axios.request(options);
@@ -80,7 +84,10 @@ export default {
       var options = {
         method: "PUT",
         url: "http://localhost:3000/Post/update",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: {
           _id: this.postData._id,
           name: this.postData.name,

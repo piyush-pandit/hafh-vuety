@@ -149,7 +149,10 @@ export default {
       const options = {
         method: "GET",
         url: `http://localhost:3000/Rv/getById/${this.rvId}`,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
       };
 
       const rvData = await axios.request(options);
@@ -161,7 +164,10 @@ export default {
       const options = {
         method: "POST",
         url: "http://localhost:3000/Room/search",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: {
           page: 1,
           Rv: this.rvId,
@@ -177,7 +183,10 @@ export default {
       var options = {
         method: "DELETE",
         url: "http://localhost:3000/Room/delete",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: { _id: roomId },
       };
 

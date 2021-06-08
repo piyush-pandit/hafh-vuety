@@ -36,19 +36,17 @@
             ></v-text-field>
 
             <div class="text-center">
-              <v-btn rounded color="#ffab01" dark block href="/rv">
+              <v-btn rounded color="#ffab01" dark block @click="login()">
                 Sign In
               </v-btn>
             </div>
 
             <p style="padding-top: 20px; margin-right: 60px">
               Dont have an account?
-              <a>
-                <span style="color: #ffab01" @click="login"
-                  >Signup here !</span
-                ></a
-              >
+              <a> <span style="color: #ffab01">Signup here !</span></a>
             </p>
+            <p>email: {{ email }}</p>
+            <p>password: {{ password }}</p>
           </v-form>
         </v-card-text>
       </v-card>
@@ -62,7 +60,7 @@ export default {
   name: "Login",
   data: () => ({
     valid: false,
-    email: "",
+    email: "chintan@wohlig.com",
     emailRules: [
       (v) => !!v || "E-mail is Required",
       (v) =>
@@ -70,7 +68,7 @@ export default {
         /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
         "E-mail must be valid",
     ],
-    password: "",
+    password: "chintan123",
     passwordRules: [(v) => !!v || "Password is required"],
   }),
   methods: {
@@ -78,13 +76,24 @@ export default {
       const options = {
         method: "POST",
         url: "http://localhost:3001/user/login",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         data: { email: this.email, password: this.password },
       };
 
-      await axios.request(options);
-      this.$router.push({
-        name: "Rv",
+      axios.request(options).then((response) => {
+        console.log(response);
+        if (response.data.accessToken && response.data.accessToken) {
+          console.log(response.data.accessToken);
+          localStorage.name = response.data.name + " " + response.data.name;
+          console.log(response.data.name);
+          localStorage.accesstoken = response.data.accessToken;
+          localStorage.userid = response.data._id;
+          this.$router.push({
+            name: "Rv",
+          });
+        }
       });
     },
   },

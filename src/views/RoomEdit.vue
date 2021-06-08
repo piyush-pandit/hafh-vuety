@@ -64,6 +64,10 @@ export default {
       const options = {
         method: "GET",
         url: `http://localhost:3000/Room/getById/${this.roomId}`,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
       };
 
       const gotRoomdata = await axios.request(options);
@@ -75,7 +79,10 @@ export default {
       const options = {
         method: "PUT",
         url: "http://localhost:3000/Room/update",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: {
           _id: this.roomData._id,
           name: this.roomData.name,

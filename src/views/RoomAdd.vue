@@ -78,7 +78,10 @@ export default {
       const options = {
         method: "POST",
         url: "http://localhost:3000/Room/create",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: {
           name: this.data.room,
           image: this.data.image,

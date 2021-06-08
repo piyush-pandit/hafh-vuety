@@ -71,7 +71,10 @@ export default {
       const options = {
         method: "POST",
         url: "http://localhost:3000/RV/create",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: {
           name: this.data.title,
           image: this.data.image,

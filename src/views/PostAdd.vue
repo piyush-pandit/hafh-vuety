@@ -67,7 +67,10 @@ export default {
       var options = {
         method: "POST",
         url: "http://localhost:3000/Post/create",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: {
           name: this.data.name,
           image: this.data.image,

@@ -105,9 +105,13 @@ export default {
       const options = {
         method: "POST",
         url: "http://localhost:3000/Rv/search",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: { page: 1 }, // remove creator id
       };
+      console.log(this.accesstoken);
       const data = await axios.request(options);
       //console.log(this.pageNo);
 
@@ -126,7 +130,10 @@ export default {
       const options = {
         method: "DELETE",
         url: "http://localhost:3000/RV/delete",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: { _id: rvId },
       };
 

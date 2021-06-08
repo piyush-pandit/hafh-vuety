@@ -132,6 +132,10 @@ export default {
       const options = {
         method: "GET",
         url: `http://localhost:3000/Room/getById/${this.roomId}`,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
       };
 
       const gotRoomdata = await axios.request(options);
@@ -143,7 +147,10 @@ export default {
       const options = {
         method: "POST",
         url: "http://localhost:3000/Post/search",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: {
           page: 1,
           Room: this.roomId,
@@ -160,7 +167,10 @@ export default {
       var options = {
         method: "DELETE",
         url: "http://localhost:3000/Post/delete",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: { _id: postId },
       };
 
@@ -171,7 +181,10 @@ export default {
       var options = {
         method: "POST",
         url: "http://localhost:3000/Post/archive",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: { _id: postId },
       };
 
@@ -182,7 +195,10 @@ export default {
       const options = {
         method: "POST",
         url: "http://localhost:3000/Post/archiveAll",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: localStorage.accesstoken,
+        },
         data: { Room: this.roomId },
       };
 
