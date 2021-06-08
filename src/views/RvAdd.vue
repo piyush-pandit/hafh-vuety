@@ -41,6 +41,7 @@
           rounded
           color="#ffab01"
           dark
+          v-on:keyup.enter="createNewRv()"
         >
           Add Rv
         </v-btn>

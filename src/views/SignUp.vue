@@ -56,7 +56,14 @@
             ></v-text-field>
 
             <div class="text-center">
-              <v-btn rounded color="#ffab01" dark block @click="signUp">
+              <v-btn
+                rounded
+                color="#ffab01"
+                dark
+                block
+                @click="signUp"
+                v-on:keyup.enter="signUp"
+              >
                 Sign Up
               </v-btn>
             </div>
@@ -114,11 +121,23 @@ export default {
         },
       };
 
-      await axios.request(options);
-
-      this.$router.push({
-        name: "Rv",
+      await axios.request(options).then((response) => {
+        // console.log(response);
+        if (response.data.accessToken && response.data.accessToken) {
+          // console.log(response.data.accessToken);
+          localStorage.name = response.data.name + " " + response.data.name;
+          // console.log(response.data.name);
+          localStorage.accesstoken = response.data.accessToken;
+          localStorage.userid = response.data._id;
+          this.$router.push({
+            name: "Rv",
+          });
+        }
       });
+
+      // this.$router.push({
+      //   name: "Rv",
+      // });
     },
   },
 };

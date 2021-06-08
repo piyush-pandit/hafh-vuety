@@ -33,6 +33,7 @@
             @click="updatePost"
             class="success mx-0 mt-3"
             :href="`/Post/${rvId}/${roomId}`"
+            v-on:keyup.enter="updatePost"
             >Update Post</v-btn
           >
         </v-form>

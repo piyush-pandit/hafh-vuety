@@ -36,7 +36,14 @@
             ></v-text-field>
 
             <div class="text-center">
-              <v-btn rounded color="#ffab01" dark block @click="login()">
+              <v-btn
+                rounded
+                color="#ffab01"
+                dark
+                block
+                @click="login()"
+                v-on:keyup.enter="login()"
+              >
                 Sign In
               </v-btn>
             </div>

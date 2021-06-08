@@ -39,6 +39,7 @@
           rounded
           color="#ffab01"
           dark
+          v-on:keyup.enter="createNewPost"
         >
           Post this
         </v-btn>

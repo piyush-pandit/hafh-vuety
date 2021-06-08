@@ -24,7 +24,12 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn @click="updateRv" class="success mx-0 mt-3">Update RV</v-btn>
+        <v-btn
+          @click="updateRv"
+          class="success mx-0 mt-3"
+          v-on:keyup.enter="updateRv"
+          >Update RV</v-btn
+        >
       </v-card-text>
     </v-card>
     <!-- <p>{{ data }}</p> -->

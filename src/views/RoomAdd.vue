@@ -44,6 +44,7 @@
           rounded
           color="#ffab01"
           dark
+          v-on:keyup.enter="createNewRoom"
         >
           Add Room
         </v-btn>

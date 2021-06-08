@@ -29,7 +29,10 @@
 
           <v-spacer></v-spacer>
 
-          <v-btn @click="updateRoom" class="success mx-0 mt-3"
+          <v-btn
+            @click="updateRoom"
+            class="success mx-0 mt-3"
+            v-on:keyup.enter="updateRoom"
             >Update Room</v-btn
           >
         </v-form>

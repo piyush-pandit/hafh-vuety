@@ -21,10 +21,20 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="dialog = false">
+          <v-btn
+            color="green darken-1"
+            text
+            @click="dialog = false"
+            v-on:keyup.enter="dialog = false"
+          >
             Cancel
           </v-btn>
-          <v-btn color="green darken-1" text @click="deletePost()">
+          <v-btn
+            color="green darken-1"
+            text
+            @click="deletePost()"
+            v-on:keyup.enter="deletePost()"
+          >
             Delete
           </v-btn>
         </v-card-actions>
