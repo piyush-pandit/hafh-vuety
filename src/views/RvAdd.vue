@@ -25,11 +25,20 @@
       >
       </v-text-field>
       <p class="para-title">Add an Image</p>
+      <v-file-input
+        type="file"
+        v-model="data.image"
+        placeholder="Browse file"
+        solo-inverted
+        prepend-icon="mdi-camera"
+        style="margin: 0px 15px 0px 15px"
+      >
+      </v-file-input>
 
-      <v-text-field
+      <!-- <v-text-field
         v-model="data.image"
         prepend-icon="mdi-camera"
-      ></v-text-field>
+      ></v-text-field> -->
 
       <v-spacer></v-spacer>
       <!-- </v-form> -->
@@ -85,7 +94,22 @@ export default {
       this.$router.push({
         name: "Rv",
       });
+      this.uploadImage();
       return false;
+    },
+    async uploadImage() {
+      var options = {
+        method: "POST",
+        url: "http://localhost:3002/api/upload",
+        headers: {
+          "Content-Type":
+            "multipart/form-data; boundary=---011000010111000001101001",
+        },
+        data: '-----011000010111000001101001\r\nContent-Disposition: form-data; name="file"; filename="Rv2.jpeg"\r\nContent-Type: image/jpeg\r\n\r\n\r\n-----011000010111000001101001--\r\n',
+      };
+      // console.log(this.data.image);
+
+      await axios.request(options);
     },
   },
 };
