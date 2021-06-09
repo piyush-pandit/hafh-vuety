@@ -26,10 +26,16 @@
         </v-text-field>
 
         <p class="para-title">Add an Image</p>
-        <v-text-field
+        <v-file-input
+          @change="uploadImage(data.image)"
+          type="file"
           v-model="data.image"
+          placeholder="Browse file"
+          solo-inverted
           prepend-icon="mdi-camera"
-        ></v-text-field>
+          style="margin: 0px 15px 0px 15px"
+        >
+        </v-file-input>
       </v-form>
       <br />
       <div class="text-center">
@@ -88,6 +94,28 @@ export default {
         params: { rvId: this.rvId, roomId: this.roomId },
       });
       return;
+    },
+    async uploadImage(img) {
+      console.log(img);
+      const fd = new FormData();
+      console.log(fd);
+      fd.append("file", img);
+      console.log("fd=", fd);
+      console.log("img=", img);
+      var options = {
+        method: "POST",
+        url: "http://localhost:3002/api/upload",
+        headers: {
+          "Content-Type":
+            "multipart/form-data; boundary=---011000010111000001101001",
+        },
+        data: fd,
+      };
+
+      const data = await axios.request(options);
+      this.data.image = data.data.file;
+
+      console.log(data);
     },
   },
 };

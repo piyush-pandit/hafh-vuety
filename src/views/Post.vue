@@ -76,10 +76,7 @@
           <v-icon>mdi-dots-vertical</v-icon>
         </v-list-item>
         <div>
-          <v-img
-            style="border-radius: 20px; margin: 5px"
-            src="https://learn.compactappliance.com/wp-content/uploads/2017/12/steamed-broccoli.jpg"
-          >
+          <v-img style="border-radius: 20px; margin: 5px" :src="post.image">
           </v-img>
           <p style="margin-right: 60%">{{ post.name }}</p>
           <br />

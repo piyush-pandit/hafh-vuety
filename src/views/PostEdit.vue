@@ -21,11 +21,17 @@
             v-model="postData.name"
             label="Name Of Post"
           ></v-text-field>
-          <v-text-field
+          <v-file-input
+            label="Add an Image"
+            @change="uploadImage(postData.image)"
+            type="file"
             v-model="postData.image"
-            label="New image"
+            placeholder="Browse file"
+            solo-inverted
             prepend-icon="mdi-camera"
-          ></v-text-field>
+            style="margin: 0px 15px 0px 15px"
+          >
+          </v-file-input>
 
           <v-spacer></v-spacer>
 
@@ -103,6 +109,30 @@ export default {
         params: { rvId: this.rvId, roomId: this.roomId },
       });
       return;
+    },
+    async uploadImage(img) {
+      console.log(img);
+      const fd = new FormData();
+      console.log(fd);
+      fd.append("file", img);
+      console.log(fd);
+      console.log("img=", img);
+      var options = {
+        method: "POST",
+        url: "http://localhost:3002/api/upload",
+        headers: {
+          "Content-Type":
+            "multipart/form-data; boundary=---011000010111000001101001",
+        },
+        data: fd,
+      };
+
+      const data = await axios.request(options);
+      console.log(data);
+      data.image = data.data.file;
+      this.postData.image = data.image;
+
+      console.log("uploaded image =", this.postData.image);
     },
   },
 };
