@@ -1,11 +1,7 @@
 <template>
   <div>
     <v-card class="mx-auto" max-width="100%">
-      <v-img
-        class="main"
-        height="200px"
-        src="http://d2u4q3iydaupsp.cloudfront.net/M9YO50StNO9wcaIKVYLMIAVeaOrWxAHoEXoIO0K1D9hMa6RlXDkuExDgDwGnn1NTP70WO5k6SoYUhqA2jEzvSp5Fj0jmHNjAWq11rOt0OA59j6pLWSEK6jEWMrGxtiG2"
-      >
+      <v-img class="main" height="200px" :src="rv.image">
         <v-fab-transition>
           <v-btn
             class="btn"

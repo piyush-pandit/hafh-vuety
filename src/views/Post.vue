@@ -1,10 +1,7 @@
 <template>
   <div>
     <v-card>
-      <v-img
-        style="border-radius: 0px 0px 30px 30px"
-        src="https://sc02.alicdn.com/kf/H14b210d2f37942ea86a6ef2fc81cdc61Y/226479103/H14b210d2f37942ea86a6ef2fc81cdc61Y.png"
-      >
+      <v-img style="border-radius: 0px 0px 30px 30px" :src="room.image">
         <v-fab-transition>
           <router-link
             :to="{
