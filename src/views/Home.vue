@@ -41,8 +41,8 @@
       <div class="text-center">
         <v-btn
           class="googleBtn"
-          style="color: #000000"
           rounded
+          style="color: #000000"
           color="#F5F5F5"
           dark
           href="https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin"
