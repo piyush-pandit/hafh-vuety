@@ -6,20 +6,6 @@
         height="200px"
         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ492AnNAAPJR3tuNh9iojWzyaVnyeQ3mApIw&usqp=CAU"
       >
-        <!-- <v-fab-transition>
-          <v-btn
-            class="btn"
-            style="color: white"
-            top
-            left
-            fixed
-            small
-            light
-            href="/rv"
-          >
-            <v-icon dark left> mdi-arrow-left </v-icon> My Rv
-          </v-btn>
-        </v-fab-transition> -->
       </v-img>
 
       <v-card-title> Your Rv's</v-card-title>

@@ -50,7 +50,9 @@
 
             <p style="padding-top: 20px; margin-right: 60px">
               Dont have an account?
-              <a> <span style="color: #ffab01">Signup here !</span></a>
+              <a href="/signup"
+                ><span style="color: #ffab01">Signup here !</span></a
+              >
             </p>
             <p>email: {{ email }}</p>
             <p>password: {{ password }}</p>

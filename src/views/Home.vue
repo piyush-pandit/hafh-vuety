@@ -41,6 +41,7 @@
       <div class="text-center">
         <v-btn
           class="googleBtn"
+          style="color: #000000"
           rounded
           color="#F5F5F5"
           dark
