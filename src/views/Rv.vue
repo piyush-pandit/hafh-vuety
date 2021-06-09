@@ -27,7 +27,7 @@
       <v-list>
         <v-list-item v-for="Rv in totalRvs" v-bind:key="Rv._id">
           <v-list-item-avatar size="40px">
-            <img alt="Avatar" src="Rv.image" />
+            <img alt="Avatar" :src="Rv.image" />
           </v-list-item-avatar>
 
           <v-list-item-content>
@@ -36,7 +36,7 @@
               tag="v-btn"
             >
               <v-list-item-title style="text-align: left; margin-left: 5px"
-                ><strong>{{ Rv.name }}</strong>
+                ><strong>{{ Rv.name }} </strong>
               </v-list-item-title>
             </router-link>
           </v-list-item-content>

@@ -73,7 +73,7 @@ export default {
   data() {
     return {
       // rvData: "",
-      data: { image: this.displayImage },
+      data: {},
       //displayImage: "",
     };
   },
@@ -105,7 +105,7 @@ export default {
       const fd = new FormData();
       console.log(fd);
       fd.append("file", img);
-      console.log(fd);
+      console.log("fd=", fd);
       console.log("img=", img);
       var options = {
         method: "POST",
@@ -123,11 +123,11 @@ export default {
 
       const data = await axios.request(options);
       this.data.image = data.data.file;
-      const displayImage = this.data.image;
+      // const displayImage = this.data.image;
 
       //const uploadImage = data.image;
       console.log(data);
-      console.log("uploaded image =", displayImage);
+      // console.log("uploaded image =", displayImage);
       //console.log(data.image);
     },
   },
