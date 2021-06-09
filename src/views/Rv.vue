@@ -27,10 +27,7 @@
       <v-list>
         <v-list-item v-for="Rv in totalRvs" v-bind:key="Rv._id">
           <v-list-item-avatar size="40px">
-            <img
-              alt="Avatar"
-              src="https://st.depositphotos.com/1203257/1763/i/950/depositphotos_17637335-stock-photo-yellowstone-rv-trip.jpg"
-            />
+            <img alt="Avatar" src="Rv.image" />
           </v-list-item-avatar>
 
           <v-list-item-content>
@@ -111,7 +108,7 @@ export default {
         },
         data: { page: 1 }, // remove creator id
       };
-      console.log(this.accesstoken);
+      // console.log(this.accesstoken);
       const data = await axios.request(options);
       //console.log(this.pageNo);
 

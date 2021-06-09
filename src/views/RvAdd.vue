@@ -26,6 +26,7 @@
       </v-text-field>
       <p class="para-title">Add an Image</p>
       <v-file-input
+        @change="uploadImage(data.image)"
         type="file"
         v-model="data.image"
         placeholder="Browse file"
@@ -72,7 +73,8 @@ export default {
   data() {
     return {
       // rvData: "",
-      data: {},
+      data: { image: this.displayImage },
+      //displayImage: "",
     };
   },
 
@@ -88,16 +90,23 @@ export default {
         data: {
           name: this.data.title,
           image: this.data.image,
+          //image: this.displayImage,
         },
       };
       await axios.request(options);
       this.$router.push({
         name: "Rv",
       });
-      this.uploadImage();
+      //  this.uploadImage();
       return false;
     },
-    async uploadImage() {
+    async uploadImage(img) {
+      console.log(img);
+      const fd = new FormData();
+      console.log(fd);
+      fd.append("file", img);
+      console.log(fd);
+      console.log("img=", img);
       var options = {
         method: "POST",
         url: "http://localhost:3002/api/upload",
@@ -105,11 +114,21 @@ export default {
           "Content-Type":
             "multipart/form-data; boundary=---011000010111000001101001",
         },
-        data: '-----011000010111000001101001\r\nContent-Disposition: form-data; name="file"; filename="Rv2.jpeg"\r\nContent-Type: image/jpeg\r\n\r\n\r\n-----011000010111000001101001--\r\n',
+        data: fd,
+        // formData: fd,
+        //data: '-----011000010111000001101001\r\nContent-Disposition: form-data; name=file; filename="Rv2.jpeg"\r\nContent-Type: image/jpeg\r\n\r\n\r\n-----011000010111000001101001--\r\n',
       };
+
       // console.log(this.data.image);
 
-      await axios.request(options);
+      const data = await axios.request(options);
+      this.data.image = data.data.file;
+      const displayImage = this.data.image;
+
+      //const uploadImage = data.image;
+      console.log(data);
+      console.log("uploaded image =", displayImage);
+      //console.log(data.image);
     },
   },
 };
