@@ -21,11 +21,22 @@
             v-model="roomData.name"
             label="Name Of Room"
           ></v-text-field>
-          <v-text-field
+          <v-file-input
+            label="Add an Image"
+            @change="uploadImage(roomData.image)"
+            type="file"
+            v-model="roomData.image"
+            placeholder="Browse file"
+            solo-inverted
+            prepend-icon="mdi-camera"
+            style="margin: 0px 15px 0px 15px"
+          >
+          </v-file-input>
+          <!-- <v-text-field
             v-model="roomData.image"
             label="New image"
             prepend-icon="mdi-camera"
-          ></v-text-field>
+          ></v-text-field> -->
 
           <v-spacer></v-spacer>
 
@@ -99,6 +110,30 @@ export default {
         name: "Room",
         params: { rvId: this.rvId },
       });
+    },
+    async uploadImage(img) {
+      console.log(img);
+      const fd = new FormData();
+      console.log(fd);
+      fd.append("file", img);
+      console.log(fd);
+      console.log("img=", img);
+      var options = {
+        method: "POST",
+        url: "http://localhost:3002/api/upload",
+        headers: {
+          "Content-Type":
+            "multipart/form-data; boundary=---011000010111000001101001",
+        },
+        data: fd,
+      };
+
+      const data = await axios.request(options);
+      console.log(data);
+      data.image = data.data.file;
+      this.roomData.image = data.image;
+
+      console.log("uploaded image =", this.rvData.image);
     },
   },
 };

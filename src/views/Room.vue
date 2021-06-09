@@ -71,10 +71,7 @@
 
         <v-list-item v-for="room in rooms" v-bind:key="room._id">
           <v-list-item-avatar size="40px">
-            <img
-              alt="Avatar"
-              src="https://st.depositphotos.com/1203257/1763/i/950/depositphotos_17637335-stock-photo-yellowstone-rv-trip.jpg"
-            />
+            <img alt="Avatar" :src="room.image" />
           </v-list-item-avatar>
 
           <v-list-item-content>
